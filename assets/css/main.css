@@ -16,12 +16,28 @@
 .project-card {
   max-width: 350px; /* Set a smaller width for the project blocks */
   margin: 20px auto; /* Center the blocks and add spacing */
-  background-color: var(--surface-color); /* Background color for the block */
+  background-color: #f4fafd; /* Change background color to #f4fafd */
   border-radius: 0 0 10px 10px; /* Rounded corners only at the bottom */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   overflow: hidden; /* Ensure content stays inside the block */
   text-align: center; /* Center-align the text */
-  
+}
+
+.projects-container {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
+  gap: 20px; /* Add spacing between the blocks */
+  margin: 0 auto; /* Center the container */
+  max-width: 1200px; /* Optional: Set a max width for the container */
+}
+
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0; /* Remove Bootstrap's padding */
+  padding-left: 0; /* Remove Bootstrap's padding */
+  margin-top: 0; /* Remove Bootstrap's margin */
 }
 
 /* Style the project image */
@@ -30,6 +46,8 @@
   height: 200px; /* Set a fixed height for the image */
   object-fit: cover; /* Ensure the image scales properly */
   border-radius: 0; /* Remove all border radius from the image */
+  padding-left: 0px; /* Add space on the left */
+  padding-right: 0px; /* Add space on the right */
 }
 
 /* Style the text container */
@@ -1210,7 +1228,7 @@ section,
   width: 100%; /* Ensure it takes up the full width within the max-width */
   margin: 0 auto; /* Center the form horizontally */
   padding: 30px; /* Add padding inside the form */
-  background-color: var(--surface-color); /* Background color for the form */
+  background-color: #f4fafd; /* Background color for the form */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   border-radius: 10px; /* Rounded corners */
 }

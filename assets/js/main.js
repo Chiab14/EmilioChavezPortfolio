@@ -5,6 +5,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
 document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
