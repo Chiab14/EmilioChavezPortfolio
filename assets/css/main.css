@@ -14,30 +14,36 @@
 /* Style the project card */
 /* Style the project card */
 .project-card {
-  max-width: 350px; /* Set a smaller width for the project blocks */
+  align-items: center; /* Centra los elementos horizontalmente */
+  display: flex; /* Habilita Flexbox */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  width: 350px; /* Set a smaller width for the project blocks */
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
   margin: 20px auto; /* Center the blocks and add spacing */
   background-color: #f4fafd; /* Change background color to #f4fafd */
   border-radius: 0 0 10px 10px; /* Rounded corners only at the bottom */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   overflow: hidden; /* Ensure content stays inside the block */
   text-align: center; /* Center-align the text */
+  justify-content: flex-start; /* Espacia los elementos para que el botón quede al final */
+  position: relative;
 }
 
 .projects-container {
   display: grid; /* Use CSS Grid */
   grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
-  gap: 20px; /* Add spacing between the blocks */
+  gap: 60px 0px; /* Add spacing between the blocks */
   margin: 0 auto; /* Center the container */
   max-width: 1200px; /* Optional: Set a max width for the container */
+  padding: 0px;
 }
 
-.row > * {
+.row {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: 0; /* Remove Bootstrap's padding */
-  padding-left: 0; /* Remove Bootstrap's padding */
-  margin-top: 0; /* Remove Bootstrap's margin */
+  padding-right: 0px; /* Remove Bootstrap's padding */
+  padding-left: 0px; /* Remove Bootstrap's padding */
 }
 
 /* Style the project image */
@@ -52,7 +58,7 @@
 
 /* Style the text container */
 .project-card .text-container {
-  padding: 20px; /* Add padding around the text */
+  padding: 40px; /* Add padding around the text */
 }
 
 /* Style the project title */
@@ -79,10 +85,53 @@
   text-decoration: none; /* Remove underline */
   display: inline-block; /* Inline-block for proper spacing */
   transition: background 0.3s ease; /* Smooth hover effect */
+  position: absolute; /* Posiciona el botón de forma absoluta */
+  bottom: 20px; /* Fija el botón a 20px del fondo */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta el centrado */s
 }
 
 .project-card .btn-custom:hover {
   background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Adjust project blocks for mobile screens */
+@media (max-width: 768px) {
+  .projects-container {
+    display: flex; /* Use Flexbox for stacking */
+    flex-direction: column; /* Stack blocks vertically */
+    gap: 20px; /* Add spacing between blocks */
+    padding: 0 15px; /* Add padding to the sides */
+  }
+
+  .project-card {
+    width: 100%; /* Make the blocks take up the full width */
+    margin: 0 auto; /* Center the blocks */
+    border-radius: 10px; /* Add rounded corners */
+    height: 300px; /* Let the height adjust automatically */
+  }
+
+  .project-card .project-image {
+    height: 150px; /* Reduce the height of the image */
+  }
+
+  .project-card .text-container {
+    padding: 20px; /* Reduce padding around the text */
+  }
+
+  .project-card .project-title {
+    font-size: 18px; /* Adjust font size for the title */
+  }
+
+  .project-card .project-description {
+    font-size: 14px; /* Adjust font size for the description */
+  }
+
+  .project-card .btn-custom {
+    font-size: 14px; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust button padding */
+    bottom: 15px; /* Adjust button position */
+  }
 }
 
 #none {
@@ -582,7 +631,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 30px 0;
+  padding: 60px 0;
   overflow: clip;
   margin-top: 0px; /* Adjust the top margin */
   margin-bottom: 0px;
@@ -592,7 +641,7 @@ section,
 # Global Section Titles
 --------------------------------------------------------------*/
 .section-title {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   position: relative;
 }
 
@@ -644,7 +693,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -713,6 +762,10 @@ section,
   padding: 0;
 }
 
+.about {
+  padding-bottom: 0px; /* Reduce this value to shorten the space */
+}
+
 .about .content p {
   text-indent: 20px; /* Adds indentation to the paragraph */
 }
@@ -724,7 +777,7 @@ section,
 }
 
 .about .content ul li {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   display: flex;
   align-items: right;
 }
@@ -849,6 +902,58 @@ section,
   background-color: var(--accent-color);
 }
 /*--------------------------------------------------------------
+# Research Paper Section
+--------------------------------------------------------------*/
+/* Research Paper Section */
+.research-paper {
+  padding: 60px 0;
+}
+
+.research-paper .pdf-viewer {
+  border: 1px solid #ddd; /* Optional: Add a border around the PDF viewer */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+/* Research Paper Section - Project Info Styling */
+.research-paper .project-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1); /* Match the shadow style */
+  background: var(--surface-color); /* Use the same background color */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.research-paper .project-info h3 {
+  font-size: 22px; /* Match the font size */
+  font-weight: 700; /* Bold title */
+  margin-bottom: 20px; /* Add spacing below the title */
+  padding-bottom: 20px; /* Add padding below the title */
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%); /* Add a bottom border */
+}
+
+.research-paper .project-info ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  font-size: 15px; /* Match the font size */
+}
+
+.research-paper .project-info ul li+li {
+  margin-top: 10px; /* Add spacing between list items */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .research-paper .row {
+    flex-direction: column; /* Stack PDF and project info vertically */
+  }
+
+  .research-paper .pdf-viewer iframe {
+    height: 400px; /* Reduce height for smaller screens */
+  }
+}
+
+/*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
 .resume .resume-title {
@@ -857,6 +962,11 @@ section,
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 500px;
+}
+
+.resume {
+  padding-bottom: 27px; /* Reduce this value to shorten the space */
 }
 
 .resume .resume-item {
@@ -1193,12 +1303,24 @@ section,
   transform: scale(1.05); /* Slight zoom effect */
 }
 
+.masonry-layout img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .masonry-item:hover .overlay {
   opacity: 1; /* Shows the overlay on hover */
 }
 
+.swiper-wrapper{
+  height: 100%;
+  width: 50%;
+}
+
 .testimonials .swiper-wrapper {
-  height: auto;
+  height: 100px;
+  width: 100px;
 }
 
 .testimonials .swiper-pagination {
@@ -1341,6 +1463,7 @@ section,
 .portfolio-details .portfolio-info {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .portfolio-details .portfolio-info h3 {
